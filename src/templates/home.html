@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block style %}
+	
+	<style>
+
+		.title {
+			font-size: calc(0.75rem + 1.5vw);
+		}
+
+		#languages {
+			width: 50%;
+		}
+
+		.container {
+			width: 100%;
+			margin: auto;
+			text-align: center;
+		}
+
+		@media (min-width: 800px) {
+			#languages {
+				width: 40%;
+			}
+		}
+
+
+	</style>
+
+{% endblock style %}
+
+{% block content %}
+
+	<p class="title text-center mt-5 p-3">Search Top 10 Github Repositories by Programming Language</p>
+	<hr>
+	<div class="container">
+			<form method="POST">
+				<select name="languages" id="languages" class="custom-select m-3	">
+					<option value="python">Python</option>
+					<option value="java">Java</option>
+					<option value="javascript">Javascript</option>
+					<option value="go">Go/Golang</option>
+					<option value="c">C</option>
+					<option value="objective-c">Objective-C</option>
+					<option value="c++">C++</option>
+					<option value="c#">C#</option>
+					<option value="assembly">Assembly</option>
+				</select>
+				<button type="submit" class="btn btn btn-outline-dark m-3">Search</button>
+			</form>
+	</div>
+
+{% endblock content %}

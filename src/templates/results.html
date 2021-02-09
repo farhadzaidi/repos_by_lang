@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block style %}
+
+	<style>
+		
+		.main {
+			font-size: calc(0.5rem + 2vw);
+		}
+
+		.stars {
+			font-size: calc(0.5rem + 1.5vw);
+		}
+
+		.fa-star {
+			color: #ffee00;
+		}
+
+	</style>
+
+{% endblock style %}
+
+{% block content %}
+	
+	<div class="container p-3 text-center">
+	{% for repo in top_ten %}
+		<p class="main">{{ loop.index }}. {{ repo['name'] }} by {{ repo['owner']['login'] }}</p>
+		<p class="stars"><i class="fas fa-star mr-2"></i>{{ repo['watchers_count'] }}</p>
+		<hr>
+	{% endfor %}
+	</div>
+
+	<div class="text-center">
+		<a href="{{ url_for('home') }}" class="btn btn-outline-dark m-3 w-50">Search Again</a>
+	</div>
+
+{% endblock content %}
